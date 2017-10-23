@@ -6,26 +6,53 @@
 <link rel="stylesheet" href="css/reset.css">
 <style>
 img{display: block;}
-.imgbox{position: relative;width: 300px;margin: 200px 0 0 200px;border: 1px solid #000;cursor: move;}
+.imgbox{position: relative;width: 300px;margin: 100px 0 0 100px;border: 1px solid #000;cursor: move;}
 .imgbox img{width: 100%;}
-#shade{position: absolute;width: 150px;height: 150px;background: #000;opacity: .5;top: 0;left: 0;}
-.zoombox{position: absolute;left: 501px;top: 200px;width: 500px;height: 500px;border: 1px solid #000;overflow: hidden;display: none;}
+#shade{position: absolute;width: 150px;height: 150px;background: #000;opacity: .5;top: 0;left: 0;display: none;}
+.zoombox{position: absolute;left: 402px;top: 100px;width: 345px;height: 345px;border: 1px solid #000;overflow: hidden;display: none;}
 .zoombox img{position: absolute;}
+
+.imgbox2{width: 400px;}
+#shade2{position: absolute;width: 150px;height: 150px;background: #000;opacity: .5;top: 0;left: 0;display: none;}
+.zoombox2{left: 502px;top: 200px;width: 720px;height: 720px;}
+.zoombox2 img{position: absolute;}
 </style>
 </head>
 <body>
 
 <div class="imgbox" id="imgbox">
 	<img src="images/1.jpg" alt="">
+	<div id="shade"></div>
 </div>
 <div class="zoombox" id="zoombox">
-	<img src="images/1.jpg" alt="">
+	<img src="images/1.jpg" alt="" />
 </div>
 
+<div class="imgbox imgbox2" id="imgbox2">
+	<img src="images/2.jpg" alt="">
+	<div id="shade2"></div>
+</div>
+<div class="zoombox zoombox2" id="zoombox2">
+	<img src="images/2.jpg" alt="" />
+</div>
 
 <script src="js/script.js"></script>
 <script>
-	
+window.onload = function(){
+
+	var pic = new picZoom({
+		smallbox: document.getElementById("imgbox"),
+		shade: document.getElementById("shade"),
+		bigBox: document.getElementById("zoombox")
+	});
+
+	var pic2 = new picZoom({
+		smallbox: document.getElementById("imgbox2"),
+		shade: document.getElementById("shade2"),
+		bigBox: document.getElementById("zoombox2")
+	});
+
+}
 </script>
 </body>
 </html>
